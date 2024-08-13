@@ -7,34 +7,28 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const schema = z.object({
-  username: z
-    .string()
-    .min(3, { message: 'Username must be at least 3 characters' }),
   email: z.string().email({ message: 'Invalid email address' }),
-  password: z
-    .string()
-    .min(8, { message: 'Password must be at least 8 characters' }),
+  password: z.string(),
 });
+type LoginData = z.infer<typeof schema>;
 
-type SignupData = z.infer<typeof schema>;
+const fields: (keyof LoginData)[] = ['email', 'password'];
 
-const fields: (keyof SignupData)[] = ['username', 'email', 'password'];
-
-const Signup = () => {
-  const form = useForm<SignupData>({
+const Login = () => {
+  const form = useForm<LoginData>({
     mode: 'all',
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<SignupData> = (data) => {
+  const onSubmit: SubmitHandler<LoginData> = (data) => {
     console.log(data);
   };
 
   return (
     <AuthFormContainer
-      title="Signup for an account"
-      link={AppRoute.Login}
-      linkText="Already have an account? Login"
+      title="Login to your account"
+      link={AppRoute.Signup}
+      linkText="Don't have an account? Sign up"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -56,4 +50,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
