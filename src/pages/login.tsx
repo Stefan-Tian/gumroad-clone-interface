@@ -4,6 +4,7 @@ import { TextField } from '@/components/ui/text-field';
 import { AppRoute } from '@/router/constant';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -31,8 +32,8 @@ const Login = () => {
       linkText="Don't have an account? Sign up"
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="gap-4 mb-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="relative">
+          <div className="gap-4 mb-10">
             {fields.map((fieldName) => (
               <FormField
                 key={fieldName}
@@ -44,6 +45,12 @@ const Login = () => {
               />
             ))}
           </div>
+          <Link
+            to={AppRoute.ForgotPassword}
+            className="absolute right-0 bottom-4 text-sm text-slate-500"
+          >
+            Forgot password?
+          </Link>
         </form>
       </Form>
     </AuthFormContainer>

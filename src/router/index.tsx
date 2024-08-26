@@ -1,3 +1,4 @@
+import ForgotPassword from '@/pages/forgot-password';
 import Login from '@/pages/login';
 import Signup from '@/pages/signup';
 import { createBrowserRouter, Link } from 'react-router-dom';
@@ -20,6 +21,10 @@ const browserRouter = createBrowserRouter([
   {
     path: AppRoute.Login,
     element: <Login />,
+  },
+  {
+    path: AppRoute.ForgotPassword,
+    element: <ForgotPassword />,
   },
 ]);
 

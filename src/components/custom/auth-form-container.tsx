@@ -11,8 +11,8 @@ const AuthFormContainer = ({
 }: {
   children: React.ReactNode;
   title: string;
-  link: AppRoute;
-  linkText: string;
+  link?: AppRoute;
+  linkText?: string;
 }) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-pink-500 to-purple-800">
@@ -27,12 +27,14 @@ const AuthFormContainer = ({
         <div className="flex flex-col w-96 border-2 border-gray-800 p-6 rounded-md bg-white">
           <div className="text-2xl font-bold mb-6">{title}</div>
           {children}
-          <div className="flex flex-col">
-            <Button type="submit">Confirm</Button>
-            <Link to={link} className="mt-2 text-center">
-              <Button variant="ghost">{linkText}</Button>
-            </Link>
-          </div>
+          {link && (
+            <div className="flex flex-col">
+              <Button type="submit">Confirm</Button>
+              <Link to={link} className="mt-2 text-center">
+                <Button variant="ghost">{linkText}</Button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
