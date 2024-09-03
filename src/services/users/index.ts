@@ -1,6 +1,7 @@
 import axiosInstance from '@/services/base';
 import { BASE_API_URL } from '@/services/constants';
 import {
+  GetUserResponse,
   LoginUserRequest,
   LoginUserResponse,
   RegisterUserRequest,
@@ -27,6 +28,14 @@ const usersService = {
     );
     return response.data;
   },
+  getUser: async (): Promise<GetUserResponse> => {
+    const response = await axiosInstance.get(`${baseAPI}/current_user_info`);
+    return response.data;
+  },
+};
+
+export const userQueryKeys = {
+  getUser: 'current_user_info',
 };
 
 export default usersService;
