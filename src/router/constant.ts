@@ -4,4 +4,5 @@ export enum AppRoute {
   Signup = '/signup',
   ForgotPassword = '/forgot-password',
   VerifyEmail = '/verify-email',
+  VerifyEmailToken = '/verify-email/:token',
 }

@@ -34,3 +34,5 @@ export interface ForgotPasswordResponse extends BaseMessageResponse {}
 export interface SendVerificationEmailResponse extends BaseMessageResponse {}
 
 export interface GetUserResponse extends User {}
+
+export interface VerifyEmailResponse extends BaseMessageResponse {}
