@@ -1,6 +1,9 @@
 import AuthFormContainer from '@/components/custom/auth-form-container';
+import { Button } from '@/components/ui/button';
 import { Form, FormField } from '@/components/ui/form';
 import { TextField } from '@/components/ui/text-field';
+import useRegister from '@/hooks/users/use-register';
+import { getErrorMessages } from '@/lib/utils';
 import { AppRoute } from '@/router/constant';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -24,10 +27,16 @@ const Signup = () => {
   const form = useForm<SignupData>({
     mode: 'all',
     resolver: zodResolver(schema),
+    defaultValues: {
+      username: '',
+      email: '',
+      password: '',
+    },
   });
+  const register = useRegister();
 
   const onSubmit: SubmitHandler<SignupData> = (data) => {
-    console.log(data);
+    register.mutate(data);
   };
 
   return (
@@ -35,10 +44,11 @@ const Signup = () => {
       title="Signup for an account"
       link={AppRoute.Login}
       linkText="Already have an account? Login"
+      error={getErrorMessages(register.error)}
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="gap-4 mb-8">
+          <div className="space-y-2 mb-8">
             {fields.map((fieldName) => (
               <FormField
                 key={fieldName}
@@ -50,6 +60,9 @@ const Signup = () => {
               />
             ))}
           </div>
+          <Button type="submit" loading={register.isLoading} className="w-full">
+            Confirm
+          </Button>
         </form>
       </Form>
     </AuthFormContainer>

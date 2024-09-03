@@ -3,4 +3,5 @@ export enum AppRoute {
   Login = '/login',
   Signup = '/signup',
   ForgotPassword = '/forgot-password',
+  VerifyEmail = '/verify-email',
 }
