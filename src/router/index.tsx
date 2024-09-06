@@ -2,6 +2,7 @@ import PrivateRoute from '@/components/custom/private-route';
 import ForgotPassword from '@/pages/forgot-password';
 import Home from '@/pages/home';
 import Login from '@/pages/login';
+import ResetPassword from '@/pages/reset-password';
 import Signup from '@/pages/signup';
 import VerifyEmail from '@/pages/verify-email';
 import VerifyEmailToken from '@/pages/verify-email-token';
@@ -24,6 +25,10 @@ const browserRouter = createBrowserRouter([
   {
     path: AppRoute.ForgotPassword,
     element: <ForgotPassword />,
+  },
+  {
+    path: AppRoute.ResetPassword,
+    element: <ResetPassword />,
   },
   {
     path: AppRoute.VerifyEmail,
