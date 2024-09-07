@@ -13,7 +13,7 @@ const useCurrentUser = () => {
     }
   );
 
-  const user = data ?? null;
+  const user = data?.user ?? null;
 
   return { user, isLoading };
 };

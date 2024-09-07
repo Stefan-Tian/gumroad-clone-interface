@@ -16,6 +16,7 @@ const PrivateRoute = ({ element }: { element: JSX.Element }) => {
     return <div>Loading...</div>;
   }
 
+  console.warn(user);
   if (!user?.emailVerified && location.pathname !== AppRoute.VerifyEmail) {
     return <Navigate to={AppRoute.VerifyEmail} />;
   }

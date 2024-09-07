@@ -10,7 +10,10 @@ const Home = () => {
   return (
     <div className="space-x-6">
       {isAuthenticated ? (
-        <button onClick={logout}>Logout</button>
+        <>
+          <button onClick={logout}>Logout</button>
+          <Link to={AppRoute.SettingsUserProfile}>Settings User Profile</Link>
+        </>
       ) : (
         <>
           <Link to={AppRoute.Signup}>Signup</Link>

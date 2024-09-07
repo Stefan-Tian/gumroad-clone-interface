@@ -3,6 +3,7 @@ import ForgotPassword from '@/pages/forgot-password';
 import Home from '@/pages/home';
 import Login from '@/pages/login';
 import ResetPassword from '@/pages/reset-password';
+import SettingsUserProfile from '@/pages/settings/user-profile';
 import Signup from '@/pages/signup';
 import VerifyEmail from '@/pages/verify-email';
 import VerifyEmailToken from '@/pages/verify-email-token';
@@ -37,6 +38,10 @@ const browserRouter = createBrowserRouter([
   {
     path: AppRoute.VerifyEmailToken,
     element: <VerifyEmailToken />,
+  },
+  {
+    path: AppRoute.SettingsUserProfile,
+    element: <PrivateRoute element={<SettingsUserProfile />} />,
   },
 ]);
 
