@@ -1,5 +1,5 @@
-import useCurrentUser from '@/hooks/users/user-current-user';
 import { cn } from '@/lib/utils';
+import { useCurrentUser } from '@/services/users/hooks';
 import { User } from '@/services/users/types';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../sidebar';

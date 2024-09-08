@@ -1,6 +1,6 @@
-import useCurrentUser from '@/hooks/users/user-current-user';
 import { checkAuthenticated } from '@/lib/user';
 import { AppRoute } from '@/router/constant';
+import { useCurrentUser } from '@/services/users/hooks';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRoute = ({ element }: { element: JSX.Element }) => {
