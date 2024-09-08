@@ -12,7 +12,7 @@ const Home = () => {
       {isAuthenticated ? (
         <>
           <button onClick={logout}>Logout</button>
-          <Link to={AppRoute.SettingsUserProfile}>Settings User Profile</Link>
+          <Link to={AppRoute.DashboardUserProfile}>Dashboard User Profile</Link>
         </>
       ) : (
         <>
