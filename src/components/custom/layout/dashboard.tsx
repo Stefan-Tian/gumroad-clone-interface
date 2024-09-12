@@ -14,12 +14,12 @@ const Dashboard = () => {
   return (
     <div
       className={cn(
-        'rounded-md flex flex-col md:flex-row bg-neutral-800 w-full flex-1 max-w-7xl mx-auto overflow-hidden border border-neutral-700',
+        'rounded-md flex flex-col md:flex-row bg-white w-full flex-1 mx-auto overflow-hidden border border-neutral-700',
         'h-screen'
       )}
     >
       <Sidebar />
-      <div className="flex flex-1">
+      <div className="flex flex-1 pt-12 justify-center mx-auto max-w-screen-lg md:px-6 px-4">
         <Outlet context={{ user }} />
       </div>
     </div>

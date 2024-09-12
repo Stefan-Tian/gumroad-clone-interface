@@ -1,8 +1,8 @@
-export interface GetUserProfileByIdRequest {
-  id: string;
+export interface GetUserProfileByUserIdRequest {
+  userId: string;
 }
 
-export interface GetUserProfileByIdResponse {
+export interface GetUserProfileByUserIdResponse {
   id: string;
   firstName: string;
   lastName: string;
@@ -10,16 +10,21 @@ export interface GetUserProfileByIdResponse {
   avatarUrl: string;
 }
 
-export interface CreateUserProfileRequest
-  extends Omit<GetUserProfileByIdResponse, 'id'> {
+export interface CreateUserProfileRequest {
   userId: string;
+  firstName: string;
+  lastName: string;
+  bio?: string;
+  avatar?: File;
 }
 
-export interface CreateUserProfileResponse extends GetUserProfileByIdResponse {}
+export interface CreateUserProfileResponse
+  extends GetUserProfileByUserIdResponse {}
 
 export interface UpdateUserProfileRequest
-  extends Partial<Omit<GetUserProfileByIdResponse, 'id'>> {
+  extends Partial<Omit<CreateUserProfileRequest, 'userId'>> {
   id: string;
 }
 
-export interface UpdateUserProfileResponse extends GetUserProfileByIdResponse {}
+export interface UpdateUserProfileResponse
+  extends GetUserProfileByUserIdResponse {}
