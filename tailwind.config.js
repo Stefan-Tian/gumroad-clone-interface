@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class', // or 'media' if you prefer to use the user's system preference
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
