@@ -1,6 +1,6 @@
 import AuthFormContainer from '@/components/custom/auth-form-container';
 import { getErrorMessages } from '@/lib/utils';
-import { useVerifyEmailToken } from '@/services/users/hooks';
+import { useVerifyEmailToken } from '@/services/user/hooks';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

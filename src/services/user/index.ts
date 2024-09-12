@@ -8,11 +8,11 @@ import {
   RegisterUserResponse,
   SendVerificationEmailResponse,
   VerifyEmailResponse,
-} from '@/services/users/types';
+} from '@/services/user/types';
 
 const baseAPI = `${BASE_API_URL}/users`;
 
-const usersService = {
+const userService = {
   login: async (data: LoginUserRequest): Promise<LoginUserResponse> => {
     const response = await axiosInstance.post(`${baseAPI}/login`, data);
     return response.data;
@@ -45,4 +45,4 @@ export const userQueryKeys = {
   getUser: 'current_user_info',
 };
 
-export default usersService;
+export default userService;

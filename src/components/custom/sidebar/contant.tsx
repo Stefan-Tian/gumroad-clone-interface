@@ -1,14 +1,15 @@
-import { MdHome, MdInventory2 } from 'react-icons/md';
+import { AppRoute } from '@/router/constant';
+import { FaArchive, FaHome } from 'react-icons/fa';
 
 export const items = [
   {
     label: 'Home',
-    icon: <MdHome className="text-neutral-200 h-5 w-5 flex-shrink-0" />,
+    icon: <FaHome className="h-5 w-5 flex-shrink-0" />,
     path: '/',
   },
   {
     label: 'Products',
-    icon: <MdInventory2 className="text-neutral-200 h-5 w-5 flex-shrink-0" />,
-    path: '/products',
+    icon: <FaArchive className="h-5 w-5 flex-shrink-0" />,
+    path: AppRoute.DashboardNewProduct,
   },
 ];

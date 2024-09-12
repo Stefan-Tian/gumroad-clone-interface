@@ -1,5 +1,6 @@
 import Dashboard from '@/components/custom/layout/dashboard';
 import PrivateRoute from '@/components/custom/private-route';
+import DashboardNewProduct from '@/pages/dashboard/new-product';
 import DashboardUserProfile from '@/pages/dashboard/user-profile';
 import ForgotPassword from '@/pages/forgot-password';
 import Home from '@/pages/home';
@@ -47,6 +48,10 @@ const browserRouter = createBrowserRouter([
       {
         path: AppRoute.DashboardUserProfile,
         element: <PrivateRoute element={<DashboardUserProfile />} />,
+      },
+      {
+        path: AppRoute.DashboardNewProduct,
+        element: <PrivateRoute element={<DashboardNewProduct />} />,
       },
     ],
   },

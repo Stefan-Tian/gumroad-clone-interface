@@ -6,5 +6,7 @@ export enum AppRoute {
   VerifyEmail = '/verify-email',
   VerifyEmailToken = '/verify-email/:token',
   ResetPassword = '/reset-password/:token',
+  Dashboard = '/dashboard',
   DashboardUserProfile = '/dashboard/user-profile',
+  DashboardNewProduct = '/dashboard/new-product',
 }

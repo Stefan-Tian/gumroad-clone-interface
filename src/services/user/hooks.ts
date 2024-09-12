@@ -3,13 +3,13 @@ import { AppRoute } from '@/router/constant';
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import usersService, { userQueryKeys } from './index';
+import userService, { userQueryKeys } from './index';
 
 export const useCurrentUser = () => {
   const isAuthenticated = checkAuthenticated();
   const { data, isLoading } = useQuery(
     userQueryKeys.getUser,
-    usersService.getUser,
+    userService.getUser,
     {
       enabled: isAuthenticated,
       refetchOnWindowFocus: false,
@@ -25,7 +25,7 @@ export const useLogin = () => {
   const navigate = useNavigate();
 
   const login = useMutation({
-    mutationFn: usersService.login,
+    mutationFn: userService.login,
     onSuccess: (response) => {
       localStorage.setItem('token', response.jwt);
       if (!response.user.emailVerified) {
@@ -56,7 +56,7 @@ export const useRegister = () => {
   const navigate = useNavigate();
 
   const register = useMutation({
-    mutationFn: usersService.register,
+    mutationFn: userService.register,
     onSuccess: (response) => {
       localStorage.setItem('token', response.jwt);
       navigate(AppRoute.VerifyEmail);
@@ -72,7 +72,7 @@ export const useResendEmailVerification = () => {
   const intervalId = useRef<NodeJS.Timeout>();
 
   const resendEmailVerification = useMutation({
-    mutationFn: usersService.sendVerificationEmail,
+    mutationFn: userService.sendVerificationEmail,
     onSuccess: () => {
       setCountdown(COUNT_DOWN_SECONDS);
       intervalId.current = setInterval(() => {
@@ -96,7 +96,7 @@ export const useResendEmailVerification = () => {
 
 export const useVerifyEmailToken = () => {
   const verifyEmailToken = useMutation((token: string) =>
-    usersService.verifyEmail(token)
+    userService.verifyEmail(token)
   );
 
   return verifyEmailToken;

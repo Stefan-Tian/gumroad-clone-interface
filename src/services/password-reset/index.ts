@@ -7,11 +7,11 @@ import {
   SendResetPasswordEmailResponse,
   VerifyResetPasswordTokenRequest,
   VerifyResetPasswordTokenResponse,
-} from '@/services/password-resets/types';
+} from '@/services/password-reset/types';
 
 const baseAPI = `${BASE_API_URL}/password_resets`;
 
-const passwordResetsService = {
+const passwordResetService = {
   sendResetPasswordEmail: async (
     data: SendResetPasswordEmailRequest
   ): Promise<SendResetPasswordEmailResponse> => {
@@ -35,4 +35,4 @@ const passwordResetsService = {
   },
 };
 
-export default passwordResetsService;
+export default passwordResetService;

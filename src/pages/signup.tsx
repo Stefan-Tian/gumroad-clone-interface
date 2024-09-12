@@ -4,7 +4,7 @@ import { Form, FormField } from '@/components/ui/form';
 import { TextField } from '@/components/ui/text-field';
 import { getErrorMessages } from '@/lib/utils';
 import { AppRoute } from '@/router/constant';
-import { useRegister } from '@/services/users/hooks';
+import { useRegister } from '@/services/user/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';

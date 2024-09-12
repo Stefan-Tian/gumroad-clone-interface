@@ -1,6 +1,6 @@
 import AuthFormContainer from '@/components/custom/auth-form-container';
 import { Button } from '@/components/ui/button';
-import { useResendEmailVerification } from '@/services/users/hooks';
+import { useResendEmailVerification } from '@/services/user/hooks';
 import { useEffect } from 'react';
 
 const VerifyEmail = () => {

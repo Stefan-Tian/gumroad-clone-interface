@@ -7,7 +7,7 @@ import { AppRoute } from '@/router/constant';
 import {
   useResetPassword,
   useVerifyResetPasswordToken,
-} from '@/services/password-resets/hooks';
+} from '@/services/password-reset/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';

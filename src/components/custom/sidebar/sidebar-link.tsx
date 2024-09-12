@@ -24,7 +24,7 @@ const SidebarLink = ({
     <Link
       to={link.path}
       className={cn(
-        'flex items-center justify-start gap-4 group/sidebar py-2',
+        'flex items-center justify-start gap-4 group/sidebar py-2 text-slate-600',
         className
       )}
       {...props}
@@ -35,7 +35,7 @@ const SidebarLink = ({
           display: animate ? (open ? 'inline-block' : 'none') : 'inline-block',
           opacity: animate ? (open ? 1 : 0) : 1,
         }}
-        className="text-neutral-100 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        className="text-slate-700 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
       >
         {link.label}
       </motion.span>

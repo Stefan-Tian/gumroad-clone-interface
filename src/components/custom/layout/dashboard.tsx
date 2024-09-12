@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
-import { useCurrentUser } from '@/services/users/hooks';
-import { User } from '@/services/users/types';
+import { useCurrentUser } from '@/services/user/hooks';
+import { User } from '@/services/user/types';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../sidebar';
 
@@ -14,7 +14,7 @@ const Dashboard = () => {
   return (
     <div
       className={cn(
-        'rounded-md flex flex-col md:flex-row bg-white w-full flex-1 mx-auto overflow-hidden border border-neutral-700',
+        'rounded-md flex flex-col md:flex-row bg-white w-full flex-1 mx-auto overflow-hidden border border-slate-200',
         'h-screen'
       )}
     >

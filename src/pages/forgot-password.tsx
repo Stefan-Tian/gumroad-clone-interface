@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormField } from '@/components/ui/form';
 import { TextField } from '@/components/ui/text-field';
 import { getErrorMessages } from '@/lib/utils';
-import { useSendResetPasswordEmail } from '@/services/password-resets/hooks';
+import { useSendResetPasswordEmail } from '@/services/password-reset/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
