@@ -3,10 +3,9 @@ import { Button } from '@/components/ui/button';
 import { Form, FormField } from '@/components/ui/form';
 import { TextField } from '@/components/ui/text-field';
 import { getErrorMessages } from '@/lib/utils';
-import passwordResetsService from '@/services/password-resets';
+import { useSendResetPasswordEmail } from '@/services/password-resets/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useMutation } from 'react-query';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -29,7 +28,7 @@ const ForgotPassword = () => {
     isLoading,
     error,
     isSuccess,
-  } = useMutation(passwordResetsService.sendResetPasswordEmail);
+  } = useSendResetPasswordEmail();
 
   const onSubmit: SubmitHandler<ForgotPasswordData> = (data) => {
     sendResetPasswordEmail(data);

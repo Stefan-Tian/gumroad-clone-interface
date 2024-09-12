@@ -4,11 +4,13 @@ import { Form, FormField } from '@/components/ui/form';
 import { TextField } from '@/components/ui/text-field';
 import { getErrorMessages } from '@/lib/utils';
 import { AppRoute } from '@/router/constant';
-import passwordResetsService from '@/services/password-resets';
+import {
+  useResetPassword,
+  useVerifyResetPasswordToken,
+} from '@/services/password-resets/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useMutation } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { z } from 'zod';
 
@@ -38,13 +40,8 @@ const ResetPassword = () => {
     },
   });
 
-  const verifyResetPasswordToken = useMutation({
-    mutationFn: passwordResetsService.verifyResetPasswordToken,
-  });
-
-  const resetPassword = useMutation({
-    mutationFn: passwordResetsService.resetPassword,
-  });
+  const verifyResetPasswordToken = useVerifyResetPasswordToken();
+  const resetPassword = useResetPassword();
 
   useEffect(() => {
     if (token) {

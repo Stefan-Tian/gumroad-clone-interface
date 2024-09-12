@@ -1,6 +1,6 @@
-import useLogout from '@/hooks/users/use-logout';
 import { checkAuthenticated } from '@/lib/user';
 import { AppRoute } from '@/router/constant';
+import { useLogout } from '@/services/users/hooks';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
