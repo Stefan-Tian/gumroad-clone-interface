@@ -9,13 +9,11 @@ import {
   UpdateUserProfileResponse,
 } from './types';
 
-export const useUserProfileByUserId = (userId: string | undefined) => {
+export const useUserProfile = () => {
   const query = useQuery<GetUserProfileByUserIdResponse, AxiosError>(
-    [userProfileQueryKeys.getUserProfileByUserId, userId],
-    () =>
-      userProfileService.getUserProfileByUserId({ userId: userId as string }),
+    [userProfileQueryKeys.getUserProfile],
+    () => userProfileService.getUserProfile(),
     {
-      enabled: !!userId,
       refetchOnWindowFocus: false,
       retry: false,
     }
@@ -32,9 +30,7 @@ export const useCreateUserProfile = () => {
     CreateUserProfileRequest
   >(userProfileService.createUserProfile, {
     onSuccess: () =>
-      queryClient.invalidateQueries(
-        userProfileQueryKeys.getUserProfileByUserId
-      ),
+      queryClient.invalidateQueries(userProfileQueryKeys.getUserProfile),
   });
 
   return mutation;
@@ -48,9 +44,7 @@ export const useUpdateUserProfile = () => {
     UpdateUserProfileRequest
   >(userProfileService.updateUserProfile, {
     onSuccess: () =>
-      queryClient.invalidateQueries(
-        userProfileQueryKeys.getUserProfileByUserId
-      ),
+      queryClient.invalidateQueries(userProfileQueryKeys.getUserProfile),
   });
 
   return mutation;

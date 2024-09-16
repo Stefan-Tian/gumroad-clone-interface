@@ -6,7 +6,7 @@ import { TextareaField } from '@/components/ui/textarea-field';
 import {
   useCreateUserProfile,
   useUpdateUserProfile,
-  useUserProfileByUserId,
+  useUserProfile,
 } from '@/services/user-profile/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
@@ -26,7 +26,7 @@ type UserProfileData = z.infer<typeof schema>;
 
 const UserProfile = () => {
   const { user } = useOutletContext<DashboardContextType>();
-  const { data, isLoading, error } = useUserProfileByUserId(user?.id);
+  const { data, isLoading, error } = useUserProfile();
 
   const form = useForm<UserProfileData>({
     mode: 'all',

@@ -3,7 +3,6 @@ import { BASE_API_URL } from '@/services/constants';
 import {
   CreateUserProfileRequest,
   CreateUserProfileResponse,
-  GetUserProfileByUserIdRequest,
   GetUserProfileByUserIdResponse,
   UpdateUserProfileRequest,
   UpdateUserProfileResponse,
@@ -12,14 +11,10 @@ import {
 const baseAPI = `${BASE_API_URL}/user_profiles`;
 
 const userProfileService = {
-  getUserProfileByUserId: async (
-    payload: GetUserProfileByUserIdRequest
-  ): Promise<GetUserProfileByUserIdResponse> => {
-    const response = await axiosInstance.get(`${baseAPI}/get_by_user_id`, {
-      params: {
-        user_id: payload.userId,
-      },
-    });
+  getUserProfile: async (): Promise<GetUserProfileByUserIdResponse> => {
+    const response = await axiosInstance.get(
+      `${baseAPI}/get_current_user_profile`
+    );
     return response.data;
   },
   createUserProfile: async (
@@ -64,7 +59,7 @@ const userProfileService = {
 };
 
 export const userProfileQueryKeys = {
-  getUserProfileByUserId: 'user_profile_by_user_id',
+  getUserProfile: 'user_profile',
 };
 
 export default userProfileService;

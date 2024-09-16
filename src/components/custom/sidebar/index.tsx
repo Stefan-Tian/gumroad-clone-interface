@@ -1,3 +1,5 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useUserProfile } from '@/services/user-profile/hooks';
 import { useState } from 'react';
 import { MdPerson } from 'react-icons/md';
 import { items } from './contant';
@@ -7,6 +9,9 @@ import SidebarProvider from './sidebar-provider';
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+  const { data } = useUserProfile();
+  const avatarUrl = data?.avatarUrl;
+
   return (
     <SidebarProvider open={open} setOpen={setOpen} animate>
       <SidebarBody className="justify-between gap-10">
@@ -17,11 +22,19 @@ const Sidebar = () => {
         </div>
         <div>
           <SidebarLink
+            className="px-0 items-center"
             link={{
               label: 'Manu Arora',
               path: '#',
               icon: (
-                <MdPerson className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+                <Avatar className="translate-x-[2px]">
+                  <AvatarImage src={avatarUrl} />
+                  <AvatarFallback>
+                    <div className="flex items-center justify-center bg-slate-600 text-white">
+                      <MdPerson />
+                    </div>
+                  </AvatarFallback>
+                </Avatar>
               ),
             }}
           />
